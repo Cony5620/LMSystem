@@ -1,0 +1,78 @@
+﻿@model IEnumerable<IssueBookViewModel>
+<h3>IssueBook List</h3>
+
+@{
+    var info = TempData["Info"];
+}
+@if (info != null)
+{
+    if (Convert.ToBoolean(TempData["status"]))
+    {
+        <div class="alert alert-success" role="alert">
+            @info
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @info
+        </div>
+    }
+}
+
+
+
+
+<table class="table">
+    <thead>
+        @{
+            int i = 1;
+        }
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Member</th>
+            <th scope="col">IssueDate</th>
+            <th scope="col">DueDate</th>
+           
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        { @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.BookInfo</td>
+                    <td>@item.MemberInfo</td>
+                    <td>@item.IssueDate</td>
+                    <td>@item.DueDate</td>
+                    <td>
+                        <a href="/issuebook/return?id=@item.id" class="btn btn-success" >Return</a>
+
+                    </td>
+                  
+                    <td>
+                        <a href="/issuebook/edit?id=@item.id" class="btn btn-primary">Edit</a>
+
+                    </td>
+                    
+
+                </tr>
+                i++;
+            }
+
+        }
+        else
+        {
+            <div class="alert alert-success" role="alert">
+                There is no Data!!
+            </div>
+        }
+
+
+
+    </tbody>
+</table>
+<a href="/issuebook/Entry" class="btn btn-outline-primary">IssueBook</a>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PublisherViewModel>
+<h3>Publisher List</h3>
+
+@{
+    var info = TempData["Info"];
+}
+@if (info != null)
+{
+    if (Convert.ToBoolean(TempData["status"]))
+    {
+        <div class="alert alert-success" role="alert">
+            @info
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @info
+        </div>
+    }
+}
+
+<table class="table">
+    <thead>
+        @{
+            int i = 1;
+        }
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Adress</th>
+            <th scope="col">ContanctInfo</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        { @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Name</td>
+                    <td>@item.Adress</td>
+                    <td>@item.ContactInfo</td>
+                    <td>
+                        <a href="/publisher/edit?id=@item.id" class="btn btn-primary">Edit</a>
+                        <a href="/publisher/delete?id=@item.id" class="btn btn-danger" onclick="return confirm('Are u sure to delete');">Delete</a>
+                    </td>
+
+                </tr>
+                i++;
+            }
+
+        }
+        else
+        {
+            <div class="alert alert-success" role="alert">
+                There is no Data!!
+            </div>
+        }
+
+
+
+    </tbody>
+</table>
+<a href="/publisher/Entry" class="btn btn-outline-primary">Entry</a>

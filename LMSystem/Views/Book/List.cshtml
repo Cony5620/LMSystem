@@ -1,0 +1,91 @@
+﻿@model IEnumerable<BookViewModel>
+<h3>Book List</h3>
+
+@{
+    var info = TempData["Info"];
+}
+@if (info != null)
+{
+    if (Convert.ToBoolean(TempData["status"]))
+    {
+        <div class="alert alert-success" role="alert">
+            @info
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            @info
+        </div>
+    }
+}
+
+
+
+
+<table class="table">
+    <thead>
+        @{
+            int i = 1;
+        }
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">PublicationYear</th>
+            <th scope="col">NumberOfCopies</th>
+            <th scope="col">Language</th>
+            <th scope="col">Description</th>
+            <th scope="col">Version</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">UnitPrice</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        { @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Title</td>
+                      <td>@item.Title</td>
+                    <td>@item.CategoryInfo</td>
+                    <td>@item.AuthorInfo</td>
+                    <td>@item.PublisherInfo</td>
+                    <td>@item.PublicationYear</td>
+                    <td>@item.NumberOfCopies</td>
+                    <td>@item.language</td>
+                    <td>@item.Description</td>
+                     <td>@item.Version</td>
+                    <td>@item.ISBN</td>
+                    <td>@item.UnitPrice</td>
+                    <td>
+                        <a href="/book/edit?id=@item.id" class="btn btn-primary">Edit</a>
+                       
+                    </td>
+                    <td>
+                       
+                        <a href="/book/delete?id=@item.id" class="btn btn-danger" onclick="return confirm('Are u sure to delete');">Delete</a>
+                    </td>
+
+                </tr>
+                i++;
+            }
+
+        }
+        else
+        {
+            <div class="alert alert-success" role="alert">
+                There is no Data!!
+            </div>
+        }
+
+
+
+    </tbody>
+</table>
+<a href="/book/Entry" class="btn btn-outline-primary">Entry</a>
+
