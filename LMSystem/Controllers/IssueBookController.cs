@@ -34,7 +34,19 @@ namespace LMSystem.Controllers
 
         private void BindBookdata()
         {
-            IEnumerable<BookViewModel> book = _bookService.GetBooks();
+            var issuedBookIds = _issueBookService.GetIssueBooks()
+                                     .Where(i => i.Status.Equals("Issued"))
+                                     .Select(i => i.Bookid);
+
+            IEnumerable<BookViewModel> book = _bookService.GetBooks()
+                                                          .Where(b => !issuedBookIds.Contains(b.id))
+                                                          .Select(b => new BookViewModel
+                                                          {
+                                                              id = b.id,
+                                                              Title = b.Title
+                                                          }).ToList();
+
+            
             ViewBag.Book = book;
         }
         [HttpPost]

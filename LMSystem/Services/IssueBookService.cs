@@ -140,7 +140,8 @@ namespace LMSystem.Services
 
         public IEnumerable<IssueBookViewModel> GetIssueBooks()
         {
-            return _unitOfWork.IssueBookRepository.GetIssueBooks();
+            var issueBooks= _unitOfWork.IssueBookRepository.GetIssueBooks();
+            return issueBooks;
         }
     }
 }

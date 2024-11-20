@@ -36,17 +36,21 @@
 
     </div>
     <div class="mb-3">
-        <label class="form-label">Adress</label>
-        <input type="text" class="form-control" required name="Adress" value="@Model.Adress">
+        <label class="form-label">Phone</label>
+        <input type="number" class="form-control" required name="Phone" value="@Model.Phone">
 
     </div>
     <div class="mb-3">
-        <label class="form-label">MembershipDate</label>
+        <label class="form-label">Adress</label>
+        <textarea class="form-control" placeholder="type address.." name="Adress">@Model.Adress</textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Membership Date</label>
         <input type="date" class="form-control" required name="MembershipDate" value="@Model.MembershipDate.ToString("yyyy-MM-dd")">
 
     </div>
     <div class="mb-3">
-        <label class="form-label">MembershipType</label>
+        <label class="form-label">Membership Type</label>
         <input type="text" class="form-control" required name="MembershipType" value="@Model.MembershipType">
 
     </div>

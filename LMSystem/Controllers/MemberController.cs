@@ -57,7 +57,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                TempData["Info"] = "Errp update to the system" + e.Message;
+                TempData["Info"] = "Error occur when updating to the system" + e.Message;
                 TempData["status"] = false;
             }
             return RedirectToAction("list");

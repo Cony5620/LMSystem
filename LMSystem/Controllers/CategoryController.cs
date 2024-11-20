@@ -32,7 +32,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                ViewData["Info"] = "Errp save to the system"+e.Message;
+                ViewData["Info"] = "Errror occur when saving to the system"+e.Message;
                 ViewData["status"] = false;
             }
              return View();

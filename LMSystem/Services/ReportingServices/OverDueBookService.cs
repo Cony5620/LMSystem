@@ -22,15 +22,21 @@ namespace LMSystem.Services.ReportingServices
                                      on i.Memberid equals m.id
                                      join b in _unitOfWork.BookRepository.GetAll()
                                      on i.Bookid equals b.id
+                                   join a in _unitOfWork.AuthorRepository.GetAll()
+                                  on b.Authorid equals a.id
 
-                                     where !i.IsInActive && !m.IsInActive && !b.IsInActive && DateTime.Parse(FromDate) <=i.IssueDate 
+                                   where !a.IsInActive && !i.IsInActive && !m.IsInActive && !b.IsInActive && DateTime.Parse(FromDate) <=i.IssueDate 
                                        && DateTime.Parse(ToDate)>=i.IssueDate  && i.Bookid == Bookid && DateTime.Now>i.DueDate
                                      select new OverDueBookViewModel
                                      {
                                          IssueDate = i.IssueDate.ToString("yyyy-MM-dd"),
                                          DueDate = i.DueDate.ToString("yyyy-MM-dd"),
-                                         BookInfo = b.Title,
-                                         MemberInfo = m.Name,
+                                         BookName = b.Title,
+                                         MemberName = m.Name,
+                                         MemberPhone=m.Phone,
+                                         MemberAdress = m.Adress,
+                                         AuthorName = a.Name,
+                                         BookUnitPrice = b.UnitPrice,
 
                                      }).ToList();   
                               return overDueBook;
@@ -43,17 +49,23 @@ namespace LMSystem.Services.ReportingServices
                                    on i.Memberid equals m.id
                                    join b in _unitOfWork.BookRepository.GetAll()
                                    on i.Bookid equals b.id
+                                   join a in _unitOfWork.AuthorRepository.GetAll()
+                                  on b.Authorid equals a.id
 
-                                   where !i.IsInActive && !m.IsInActive && !b.IsInActive && DateTime.Parse(FromDate) <= i.IssueDate
+                                   where !a.IsInActive && !i.IsInActive && !m.IsInActive && !b.IsInActive && DateTime.Parse(FromDate) <= i.IssueDate
                                       && DateTime.Parse(ToDate) >= i.IssueDate  && DateTime.Now > i.DueDate
 
                                    select new OverDueBookViewModel
                                    {
                                        IssueDate = i.IssueDate.ToString("yyyy-MM-dd"),
                                        DueDate = i.DueDate.ToString("yyyy-MM-dd"),
-                                       BookInfo = b.Title,
-                                       MemberInfo = m.Name,
-
+                                       BookName = b.Title,
+                                       MemberName = m.Name,
+                                       MemberPhone = m.Phone,
+                                       MemberAdress = m.Adress,
+                                       AuthorName = a.Name,
+                                       BookUnitPrice=b.UnitPrice,
+                                       
                                    }).ToList();
                 return overDueBook;
 

@@ -18,9 +18,11 @@ namespace LMSystem.Repositories.Domain
         {
             return _dbContext.IssueBooks.Where(w => !w.IsInActive).Select(s => new IssueBookViewModel
             {
-                id = s.id,
-               IssueDate=s.IssueDate,
+                 id = s.id,
+                 IssueDate=s.IssueDate,
                   DueDate=s.DueDate,
+                Bookid = s.Bookid,
+                Status = s.Status,
 
             }).ToList();
         }

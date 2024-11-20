@@ -50,7 +50,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                ViewData["Info"] = "Errp save to the system" + e.Message;
+                ViewData["Info"] = "Error when saving data to the system" + e.Message;
                 ViewData["status"] = false;
             }
              return View();
@@ -100,13 +100,13 @@ namespace LMSystem.Controllers
                 };
                 _dbContext.Librarians.Update(librarianEntity);
                 _dbContext.SaveChanges();
-                ViewData["Info"] = "Successfully save to the system";
+                ViewData["Info"] = "Successfully update to the system";
                 ViewData["status"] = true;
             }
             catch (Exception e)
             {
 
-                ViewData["Info"] = "Errp save to the system" + e.Message;
+                ViewData["Info"] = "Error occur when updating to the system" + e.Message;
                 ViewData["status"] = false;
             }
             return RedirectToAction("list");

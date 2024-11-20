@@ -53,13 +53,13 @@ namespace LMSystem.Controllers
             try
             {
                _publisherService.Update(publisherViewModel);
-                TempData["Info"] = "Successfully save to the system";
+                TempData["Info"] = "Successfully update to the system";
                 TempData["status"] = true;
             }
             catch (Exception e)
             {
 
-                TempData["Info"] = "Errp update to the system" + e.Message;
+                TempData["Info"] = "Error occur when updating to the system" + e.Message;
                 TempData["status"] = false;
             }
             return RedirectToAction("list");

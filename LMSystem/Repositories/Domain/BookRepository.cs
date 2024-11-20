@@ -16,7 +16,7 @@ namespace LMSystem.Repositories.Domain
 
         public IEnumerable<BookViewModel> GetBooks()
         {
-         return _dbContext.Books.Where(w=>!w.IsInActive).Select(s=>new BookViewModel
+         return _dbContext.Books.Where(w=>!w.IsInActive ).Select(s=>new BookViewModel
            {id=s.id,
            Title=s.Title,
 

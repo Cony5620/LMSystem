@@ -62,7 +62,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                ViewData["Info"] = "Errp save to the system" + e.Message;
+                ViewData["Info"] = "Error when saving to the system" + e.Message;
                 ViewData["status"] = false;
             }
             BindCategoryData();
@@ -98,7 +98,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                TempData["Info"] = "Errp update to the system" + e.Message;
+                TempData["Info"] = "Error occur when updating to the system" + e.Message;
                 TempData["status"] = false;
             }
            

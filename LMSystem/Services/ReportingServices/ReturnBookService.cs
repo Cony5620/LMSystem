@@ -48,8 +48,8 @@ namespace LMSystem.Services.ReportingServices
                                    join b in _unitOfWork.BookRepository.GetAll()
                                    on i.Bookid equals b.id
                                   where i.IsInActive = true
-                                     &&  DateTime.Parse(FromDate) <= i.ReturnDate
-                                     && DateTime.Parse(ToDate) >= i.ReturnDate
+                                     &&  DateTime.Parse(FromDate) <=i.ReturnDate //2024-8-1<=2024-08-31 00:42:02.1574553 
+                                     && DateTime.Parse(ToDate) >= i.ReturnDate//2024-08-31>=2024-08-31 
                                   select new ReturnBookViewModel
                                   {
                                        IssueDate = i.IssueDate.ToString("yyyy-MM-dd"),

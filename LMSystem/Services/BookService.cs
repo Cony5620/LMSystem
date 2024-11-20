@@ -66,7 +66,7 @@ namespace LMSystem.Services
                                               on b.Authorid equals a.id
                                               join p in _unitOfWork.PublisherRepository.GetAll()
                                               on b.Publisherid equals p.id
-                                              where !b.IsInActive && !c.IsInActive && !a.IsInActive && !p.IsInActive
+                                              where !b.IsInActive 
                                               select new BookViewModel
                                               {
                                                    id = b.id,

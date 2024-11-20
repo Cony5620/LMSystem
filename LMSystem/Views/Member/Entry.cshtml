@@ -34,21 +34,29 @@
 
     </div>
     <div class="mb-3">
-        <label class="form-label">Adress</label>
-        <input type="text" class="form-control" placeholder="type Adress" required name="Adress">
+        <label class="form-label">Phone</label>
+        <input type="number" class="form-control" placeholder="type phone no" required name="Phone">
 
     </div>
     <div class="mb-3">
-        <label class="form-label">Membershipdate</label>
+        <label class="form-label">Adress</label>
+        <textarea class="form-control" placeholder="type address.." name="Adress"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Membership date</label>
         <input type="date" class="form-control" placeholder="type membershipdate" required name="Membershipdate">
 
     </div>
+    
     <div class="mb-3">
-        <label class="form-label">MembershipType</label>
-        <input type="text" class="form-control" placeholder="type MembershipType" required name="MembershipType">
-
+        <label class="form-label">Membership Type</label>
+        <select class="form-select" name="MembershipType">
+            <option selected>Select Member Type</option>
+            <option >Premium Member</option>
+            <option >Normal Member</option>
+            
+        </select>
     </div>
-
 
     <button type="submit" class="btn btn-primary">Entry</button>
     <a href="/member/list" class="btn btn-outline-primary">List</a>

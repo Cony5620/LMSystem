@@ -33,7 +33,7 @@ namespace LMSystem.Controllers
             catch (Exception e)
             {
 
-                ViewData["Info"] = "Errp save to the system"+e.Message;
+                ViewData["Info"] = "Error occur when  saving to the system"+e.Message;
                 ViewData["status"] = false;
             }
              return View();
@@ -53,13 +53,13 @@ namespace LMSystem.Controllers
         {
             try
             {   _authorService.Update(authorViewModel);
-                TempData["Info"] = "Successfully save to the system";
+                TempData["Info"] = "Successfully update to the system";
                 TempData["status"] = true;
             }
             catch (Exception e)
             {
 
-                TempData["Info"] = "Errp save to the system" + e.Message;
+                TempData["Info"] = "Error occur when updating to the system" + e.Message;
                 TempData["status"] = false;
             }
             return RedirectToAction("list");
