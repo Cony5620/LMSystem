@@ -20,7 +20,6 @@
 - Data Storages With MS SQL Server 
 - Paging & Sorting With JQuery DataTables.net (crd :https://datatables.net/ )
 - Admin Dashboard With AdminLTE ( crd : https://adminlte.io/)
-
 # ERD Design 
 https://docs.google.com/spreadsheets/d/1Mm4KXy6kWhddMNB3Hfy1ukt37-URTyqy5WySVPRTDfY/edit?usp=sharing
 # Public UI
