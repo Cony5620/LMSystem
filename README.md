@@ -25,3 +25,4 @@
 https://docs.google.com/spreadsheets/d/1Mm4KXy6kWhddMNB3Hfy1ukt37-URTyqy5WySVPRTDfY/edit?usp=sharing
 # Public UI
 ![Image](https://github.com/user-attachments/assets/a6b91b84-fe46-40bd-984e-456d70ef417d)
+# Librarian View
